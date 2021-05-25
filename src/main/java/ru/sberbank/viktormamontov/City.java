@@ -2,7 +2,11 @@ package ru.sberbank.viktormamontov;
 
 import java.util.Objects;
 
-public class City {
+/**
+ * data class
+ * @author Viktor Mamontov
+ */
+class City {
 
     private String name;
     private String region;

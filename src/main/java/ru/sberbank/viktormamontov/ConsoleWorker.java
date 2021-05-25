@@ -3,7 +3,9 @@ package ru.sberbank.viktormamontov;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-
+/**
+ * @author Viktor Mamontov
+ */
 public class ConsoleWorker {
 
     private CityHandler cityHandler;

@@ -2,7 +2,9 @@ package ru.sberbank.viktormamontov;
 
 import java.util.*;
 import java.util.stream.Collectors;
-
+/**
+ * @author Viktor Mamontov
+ */
 public class CityHandlerImpl implements CityHandler {
 
     @Override
