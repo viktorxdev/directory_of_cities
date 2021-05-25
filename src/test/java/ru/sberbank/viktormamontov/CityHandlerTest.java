@@ -44,11 +44,12 @@ class CityHandlerTest {
         List<City> cities = cityHandler.parseLines(inputLines);
         cityHandler.sortByName(cities);
         City city = cities.get(0);
-        assertEquals("Адыгейск", city.getName());
+        assertEquals("Майкоп", city.getName());
         city = cities.get(1);
         assertEquals("Горно-Алтайск", city.getName());
         city = cities.get(2);
-        assertEquals("Майкоп", city.getName());
+        assertEquals("Адыгейск", city.getName());
+
     }
 
     @Test
@@ -56,14 +57,14 @@ class CityHandlerTest {
         List<City> cities = cityHandler.parseLines(inputLines);
         cityHandler.sortByDistrictAndName(cities);
         City city = cities.get(0);
-        assertEquals("Сибирский", city.getDistrict());
-        assertEquals("Горно-Алтайск", city.getName());
+        assertEquals("Южный", city.getDistrict());
+        assertEquals("Майкоп", city.getName());
         city = cities.get(1);
         assertEquals("Южный", city.getDistrict());
         assertEquals("Адыгейск", city.getName());
         city = cities.get(2);
-        assertEquals("Южный", city.getDistrict());
-        assertEquals("Майкоп", city.getName());
+        assertEquals("Сибирский", city.getDistrict());
+        assertEquals("Горно-Алтайск", city.getName());
     }
 
     @Test

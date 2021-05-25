@@ -23,10 +23,12 @@ public class CityHandler {
 
     public void sortByName(List<City> cities) {
         Collections.sort(cities, Comparator.comparing(c -> c.getName().toLowerCase()));
+        Collections.reverse(cities);
     }
 
     public void sortByDistrictAndName(List<City> cities) {
-        Collections.sort(cities, Comparator.comparing(City::getDistrict).thenComparing(City::getName));
+        Collections.sort(cities, Comparator.comparing(City::getDistrict)
+                .thenComparing(City::getName).reversed());
     }
 
 
