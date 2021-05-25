@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -34,6 +35,10 @@ public class Main {
 
         cityHandler.sortByDistrictAndName(cities);
         cities.forEach(System.out::println);
+        System.out.println("========================");
+
+        Map<Integer, Integer> cityWithLargestPopulation = cityHandler.findCityWithLargestPopulation(cities);
+        System.out.println(cityWithLargestPopulation);
         System.out.println("========================");
 
     }

@@ -1,9 +1,6 @@
 package ru.sberbank.viktormamontov;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class CityHandler {
 
@@ -24,10 +21,26 @@ public class CityHandler {
     }
 
     public void sortByName(List<City> cities) {
-        Collections.sort(cities, (c1, c2) -> c1.getName().toLowerCase().compareTo(c2.getName().toLowerCase()));
+        Collections.sort(cities, Comparator.comparing(c -> c.getName().toLowerCase()));
     }
 
     public void sortByDistrictAndName(List<City> cities) {
         Collections.sort(cities, Comparator.comparing(City::getDistrict).thenComparing(City::getName));
+    }
+
+
+    //return map, where key is index of city in array with largest population, value is population
+    public Map<Integer, Integer> findCityWithLargestPopulation(List<City> cities) {
+        City[] arr = new City[cities.size()];
+        arr = cities.toArray(arr);
+        int maxPopulation = Integer.MIN_VALUE;
+        int idx = -1;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].getPopulation() > maxPopulation) {
+                maxPopulation = arr[i].getPopulation();
+                idx = i;
+            }
+        }
+        return Collections.singletonMap(idx, maxPopulation);
     }
 }
