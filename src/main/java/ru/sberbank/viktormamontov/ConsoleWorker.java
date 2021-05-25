@@ -18,6 +18,9 @@ public class ConsoleWorker {
         scanner = new Scanner(System.in);
     }
 
+    /**
+     * main logic of working with console
+     */
     public void showMenu() {
         do {
             System.out.println("Введите номер действия:");

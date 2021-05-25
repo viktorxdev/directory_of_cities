@@ -59,7 +59,6 @@ public class CityHandlerImpl implements CityHandler {
         return Collections.singletonMap(idx, maxPopulation);
     }
 
-    //another implementation of module 3 task
     @Override
     public City findCityWithLargestPopulation(List<City> cities) {
         checkNullOrEmptyList(cities);
@@ -69,7 +68,6 @@ public class CityHandlerImpl implements CityHandler {
         return null;
     }
 
-    //return map where key is region, value is quantity of cities in this region
     @Override
     public Map<String, Long> countCitiesByRegion(List<City> cities) {
         checkNullOrEmptyList(cities);
