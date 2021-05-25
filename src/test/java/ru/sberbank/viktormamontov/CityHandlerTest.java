@@ -28,14 +28,11 @@ class CityHandlerTest {
     void parseLines() {
         List<City> cities = cityHandler.parseLines(inputLines);
         City city = cities.get(0);
-        assertEquals("Адыгейск", city.getName());
-        assertEquals(12248, city.getPopulation());
+        assertEquals(new City("Адыгейск", "Адыгея", "Южный", 12248,"1973"), city);
         city = cities.get(1);
-        assertEquals("Майкоп", city.getName());
-        assertEquals(144246, city.getPopulation());
+        assertEquals(new City("Майкоп", "Адыгея", "Южный", 144246,"1857"), city);
         city = cities.get(2);
-        assertEquals("Горно-Алтайск", city.getName());
-        assertEquals(56928, city.getPopulation());
+        assertEquals(new City("Горно-Алтайск", "Алтай", "Сибирский", 56928,"1830"), city);
 
     }
 

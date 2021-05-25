@@ -18,7 +18,6 @@ public class ConsoleWorker {
 
     public void showMenu() {
         do {
-
             System.out.println("Введите номер действия:");
             System.out.println("1 - получить список городов");
             System.out.println("2 - получить список городов, отсортированный по названию по убыванию");
@@ -68,6 +67,7 @@ public class ConsoleWorker {
                     break;
                 case 0:
                     scanner.close();
+                    System.out.println("Сеанс завершен!");
                     return;
                 default:
                     System.out.println("Введены некорректные данные, попробуйте снова.");
