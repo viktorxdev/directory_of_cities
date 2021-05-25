@@ -23,7 +23,7 @@ public class Main {
         }
         scanner.close();
 
-        CityHandler cityHandler = new CityHandler();
+        CityHandlerImpl cityHandler = new CityHandlerImpl();
         List<City> cities = cityHandler.parseLines(inputLines);
         System.out.println("========================");
 

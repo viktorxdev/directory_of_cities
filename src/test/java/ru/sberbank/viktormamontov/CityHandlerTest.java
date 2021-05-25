@@ -21,7 +21,7 @@ class CityHandlerTest {
         inputLines.add("1;Адыгейск;Адыгея;Южный;12248;1973");
         inputLines.add("2;Майкоп;Адыгея;Южный;144246;1857");
         inputLines.add("3;Горно-Алтайск;Алтай;Сибирский;56928;1830");
-        cityHandler = new CityHandler();
+        cityHandler = new CityHandlerImpl();
     }
 
     @Test
