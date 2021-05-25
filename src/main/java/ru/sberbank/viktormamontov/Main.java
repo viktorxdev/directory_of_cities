@@ -25,6 +25,8 @@ public class Main {
 
         CityHandler cityHandler = new CityHandler();
         List<City> cities = cityHandler.parseLines(inputLines);
+        System.out.println("========================");
+
 
         cities.forEach(System.out::println);
         System.out.println("========================");
@@ -37,8 +39,16 @@ public class Main {
         cities.forEach(System.out::println);
         System.out.println("========================");
 
-        Map<Integer, Integer> cityWithLargestPopulation = cityHandler.findCityWithLargestPopulation(cities);
-        System.out.println(cityWithLargestPopulation);
+        Map<Integer, Integer> cityWithLargestPopulation = cityHandler.findCityIndexWithLargestPopulation(cities);
+        cityWithLargestPopulation.forEach((key, value) -> System.out.printf("[%d] = %d\n", key, value));
+        System.out.println("========================");
+
+//        City cityWithLargestPopulation1 = cityHandler.findCityWithLargestPopulation(cities);
+//        System.out.println(cityWithLargestPopulation1);
+//        System.out.println("========================");
+
+        Map<String, Long> countCitiesByRegion = cityHandler.countCitiesByRegion(cities);
+        countCitiesByRegion.forEach((key, value) -> System.out.println(key + " - " + value));
         System.out.println("========================");
 
     }

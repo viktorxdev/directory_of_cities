@@ -1,6 +1,7 @@
 package ru.sberbank.viktormamontov;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class CityHandler {
 
@@ -29,8 +30,8 @@ public class CityHandler {
     }
 
 
-    //return map, where key is index of city in array with largest population, value is population
-    public Map<Integer, Integer> findCityWithLargestPopulation(List<City> cities) {
+    //return map, where key is index of city with largest population, value is population
+    public Map<Integer, Integer> findCityIndexWithLargestPopulation(List<City> cities) {
         City[] arr = new City[cities.size()];
         arr = cities.toArray(arr);
         int maxPopulation = Integer.MIN_VALUE;
@@ -43,4 +44,20 @@ public class CityHandler {
         }
         return Collections.singletonMap(idx, maxPopulation);
     }
+
+    //another implementation of module 3 task
+    public City findCityWithLargestPopulation(List<City> cities) {
+        Optional<City> max = cities.stream().max(Comparator.comparing(City::getPopulation));
+        if (max.isPresent())
+            return max.get();
+        return null;
+    }
+
+    //return map where key is region, value is quantity of cities in this region
+    public Map<String, Long> countCitiesByRegion(List<City> cities) {
+        Map<String, Long> collect = cities.stream()
+                .collect(Collectors.groupingBy(City::getRegion, Collectors.counting()));
+        return collect;
+    }
+
 }
