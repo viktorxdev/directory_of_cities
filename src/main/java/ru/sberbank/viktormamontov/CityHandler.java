@@ -72,7 +72,7 @@ public class CityHandler {
 
     private void checkNullOrEmptyList(List<City> cities) {
         if (cities == null || cities.isEmpty()) {
-            throw new IllegalArgumentException("input list is null or empty");
+            throw new IllegalArgumentException("input list of cities is null or empty");
         }
     }
 
