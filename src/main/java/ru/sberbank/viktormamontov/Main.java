@@ -26,6 +26,15 @@ public class Main {
         List<City> cities = cityHandler.parseLines(inputLines);
 
         cities.forEach(System.out::println);
+        System.out.println("========================");
+
+        cityHandler.sortByName(cities);
+        cities.forEach(System.out::println);
+        System.out.println("========================");
+
+        cityHandler.sortByDistrictAndName(cities);
+        cities.forEach(System.out::println);
+        System.out.println("========================");
 
     }
 }

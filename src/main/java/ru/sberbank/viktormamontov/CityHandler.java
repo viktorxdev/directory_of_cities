@@ -1,6 +1,8 @@
 package ru.sberbank.viktormamontov;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CityHandler {
@@ -19,5 +21,13 @@ public class CityHandler {
             cities.add(new City(name, region, district, population, foundation));
         }
         return cities;
+    }
+
+    public void sortByName(List<City> cities) {
+        Collections.sort(cities, (c1, c2) -> c1.getName().toLowerCase().compareTo(c2.getName().toLowerCase()));
+    }
+
+    public void sortByDistrictAndName(List<City> cities) {
+        Collections.sort(cities, Comparator.comparing(City::getDistrict).thenComparing(City::getName));
     }
 }
