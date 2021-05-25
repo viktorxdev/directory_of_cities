@@ -6,6 +6,9 @@ import java.util.stream.Collectors;
 public class CityHandler {
 
     public List<City> parseLines(List<String> lines) {
+        if (lines == null || lines.isEmpty()) {
+            throw new IllegalArgumentException("input list is null or empty");
+        }
         List<City> cities = new ArrayList<>();
         for (String line : lines) {
             String[] split = line.split(";");
@@ -22,11 +25,13 @@ public class CityHandler {
     }
 
     public void sortByName(List<City> cities) {
+        checkNullOrEmptyList(cities);
         Collections.sort(cities, Comparator.comparing(c -> c.getName().toLowerCase()));
         Collections.reverse(cities);
     }
 
     public void sortByDistrictAndName(List<City> cities) {
+        checkNullOrEmptyList(cities);
         Collections.sort(cities, Comparator.comparing(City::getDistrict)
                 .thenComparing(City::getName).reversed());
     }
@@ -34,6 +39,7 @@ public class CityHandler {
 
     //return map, where key is index of city with largest population, value is population
     public Map<Integer, Integer> findCityIndexWithLargestPopulation(List<City> cities) {
+        checkNullOrEmptyList(cities);
         City[] arr = new City[cities.size()];
         arr = cities.toArray(arr);
         int maxPopulation = Integer.MIN_VALUE;
@@ -49,6 +55,7 @@ public class CityHandler {
 
     //another implementation of module 3 task
     public City findCityWithLargestPopulation(List<City> cities) {
+        checkNullOrEmptyList(cities);
         Optional<City> max = cities.stream().max(Comparator.comparing(City::getPopulation));
         if (max.isPresent())
             return max.get();
@@ -57,9 +64,16 @@ public class CityHandler {
 
     //return map where key is region, value is quantity of cities in this region
     public Map<String, Long> countCitiesByRegion(List<City> cities) {
+        checkNullOrEmptyList(cities);
         Map<String, Long> collect = cities.stream()
                 .collect(Collectors.groupingBy(City::getRegion, Collectors.counting()));
         return collect;
+    }
+
+    private void checkNullOrEmptyList(List<City> cities) {
+        if (cities == null || cities.isEmpty()) {
+            throw new IllegalArgumentException("input list is null or empty");
+        }
     }
 
 }
