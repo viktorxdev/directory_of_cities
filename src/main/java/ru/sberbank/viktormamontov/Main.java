@@ -1,31 +1,24 @@
 package ru.sberbank.viktormamontov;
 
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import ru.sberbank.viktormamontov.DAO.CityDao;
+import ru.sberbank.viktormamontov.DAO.CityDaoImpl;
+import ru.sberbank.viktormamontov.service.CityService;
+import ru.sberbank.viktormamontov.service.CityServiceImpl;
 
-/**
- * @author Viktor Mamontov
- */
+
+
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(Paths.get("/Users/u19223645/Downloads/Cities.txt"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//       /Users/u19223645/Downloads/Cities.txt
 
-        List<String> inputLines = new ArrayList<>();
-        while (scanner.hasNext()) {
-            inputLines.add(scanner.nextLine());
-        }
-        scanner.close();
 
-        ConsoleWorker consoleWorker = new ConsoleWorker(inputLines);
+        MyCityDataBase db = new MyCityDataBase();
+        CityDao cityDao = new CityDaoImpl(db);
+        CityService cityService = new CityServiceImpl(cityDao);
+
+        ConsoleWorker consoleWorker = new ConsoleWorker(cityService);
+        consoleWorker.start();
         consoleWorker.showMenu();
 
     }

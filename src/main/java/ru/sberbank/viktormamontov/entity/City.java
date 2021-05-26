@@ -1,4 +1,4 @@
-package ru.sberbank.viktormamontov;
+package ru.sberbank.viktormamontov.entity;
 
 import java.util.Objects;
 
@@ -6,7 +6,7 @@ import java.util.Objects;
  * data class
  * @author Viktor Mamontov
  */
-class City {
+public class City {
 
     private String name;
     private String region;
